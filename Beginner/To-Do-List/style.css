@@ -1,0 +1,152 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0c10;
+    color: #fff;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    box-shadow: 3px 3px 8px #252525;
+    background-color: #1f2833;
+    border-radius: 16px;
+    width: 500px;
+    padding-bottom: 44px;
+}
+
+
+#container h1{
+    font-size: 40px;
+    padding: 8px;
+    color: #66fcf1;
+}
+
+#add-todo-btn{
+    display: flex;
+    align-items: center;
+    border: 1px solid #66fcf1;
+    padding: 16px 16px;
+    width: 300px;
+    height: 24px;
+    cursor: pointer;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #66fcf1;
+    padding: 16px 16px;
+    width: 300px;
+    height: 24px;
+    border-top: none;
+    margin: 0;
+}
+
+.checkbox-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin-right: 16px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+}
+
+/* Custom checkmark */
+.custom-checkmark {
+    width: 100%;
+    height: 100%;
+    background-color: #0b0c10; /* Unchecked background */
+    border: 1px solid #66fcf1;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: background-color 0.2s ease;
+}
+.custom-checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 12px;
+    border: solid #0b0c10; /* Color of the tick (dark) */
+    border-width: 0 3px 3px 0;
+    opacity: 1;
+    transform: rotate(45deg);
+    transition: opacity 0.2s ease;
+  }
+/* When checked */
+.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkmark {
+    background-color: #66fcf1;
+}
+
+
+input[type="text"]{
+    padding-left: 8px;
+    color: #66fcf1;
+    font-size: 16px;
+    width: 220px;
+    margin-right: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background-color: transparent;
+}
+input[type="text"]:focus{
+    border-bottom: 1px solid #45a29e;
+}
+.completed{
+    text-decoration: line-through;
+}
+
+.delete-btn{
+    display: grid;
+    align-content: center;
+    height: 28px;
+    width: 28px;
+    background-color: transparent;
+    color: #66fcf1;
+    font-weight: bolder;
+    border-radius: 2px;
+    border: 1px solid #66fcf1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.delete-btn:hover{
+    background-color: #66fcf1;
+    color: #0b0c10;
+}
+
+#clear-all-btn{
+    padding: 12px 32px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #66fcf1;
+    cursor: pointer;
+    border: 1px solid #66fcf1;
+    transition:0.2s ease;
+    margin: 8px auto;
+    display: flex;
+}
+#clear-all-btn:hover{
+    color: #0b0c10;
+    background-color: #66fcf1;
+}
