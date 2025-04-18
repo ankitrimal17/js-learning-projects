@@ -16,6 +16,7 @@ body{
     border-radius: 16px;
     width: 500px;
     padding-bottom: 44px;
+    position: relative;
 }
 
 
@@ -69,7 +70,7 @@ li{
 .custom-checkmark {
     width: 100%;
     height: 100%;
-    background-color: #0b0c10; /* Unchecked background */
+    background-color: #1f2833;
     border: 1px solid #66fcf1;
     border-radius: 2px;
     position: absolute;
@@ -84,16 +85,16 @@ li{
     left: 6px;
     top: 2px;
     width: 5px;
+    opacity: 0;
     height: 12px;
-    border: solid #0b0c10; /* Color of the tick (dark) */
+    border: solid #66fcf1; /* Color of the tick (dark) */
     border-width: 0 3px 3px 0;
-    opacity: 1;
     transform: rotate(45deg);
     transition: opacity 0.2s ease;
   }
 /* When checked */
-.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkmark {
-    background-color: #66fcf1;
+.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkmark::after{
+    opacity: 1;
 }
 
 
@@ -149,4 +150,109 @@ input[type="text"]:focus{
 #clear-all-btn:hover{
     color: #0b0c10;
     background-color: #66fcf1;
+}
+
+
+
+#theme-toggle {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #66fcf1;
+    cursor: pointer;
+    border: 1px solid #66fcf1;
+    transition: 0.2s ease;
+    margin: 8px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+}
+#theme-toggle:hover {
+    color: #0b0c10;
+    background-color: #66fcf1;
+}
+
+
+
+
+body.light {
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+body.light #container {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px #aaa;
+}
+body.light #title{
+    color: #0b0c10;
+}
+
+body.light #add-todo-btn{
+    border: 1px solid #0b0c10;
+}
+body.light li {
+    border: 1px solid #0b0c10;
+    border-top: none;
+}
+
+body.light input[type="text"] {
+    color: #000;
+}
+
+body.light .custom-checkmark {
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+body.light .custom-checkmark::after {
+    border-color: #000;
+}
+
+body.light .delete-btn {
+    color: #000;
+    border-color: #000;
+}
+
+body.light .delete-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+body.light #clear-all-btn,
+body.light #theme-toggle {
+    border: 1px solid #000;
+    color: #000;
+}
+
+body.light #clear-all-btn:hover,
+body.light #theme-toggle:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+
+@media (max-width: 600px) {
+    #container {
+        width: 353px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #add-todo-btn{
+        width: 80%;
+    }
+    li{
+        width: 80%;
+        margin: auto;
+    }
+
 }
